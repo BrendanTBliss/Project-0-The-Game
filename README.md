@@ -13,3 +13,11 @@ vi. This process is repeated up to 12 times until either a "riff" has been compl
 vii. If the user can get through these steps without generating three strikes then they will win the game and a "YOU WIN" notification will be generated. If the user gets three strikes the a "YOU LOSE" notification will be generated. 
 viii. Throughout this entire process the "Start Riff" button will be available to reset the game.
 
+MVP Pitch:
+
+I plan to have at least one "riff" that the user is supposed to repeat to end the game. The buttons will be matched to audio files hosted on Soundcloud. The main logic that I will have to figure out is how to program the application to know when the user is inputting the correct combination of keys and clicks together to match the computer.
+
+Stretch Goals:
+
+Time permitting, I will have more than one riff for the user to copy. Also, time permitting there will be a "free play" mode so the user can just click the different nots on the guitar and play with the generated sounds.
+

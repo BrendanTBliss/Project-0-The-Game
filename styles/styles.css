@@ -1,0 +1,44 @@
+
+
+body {
+    top: 0;
+    left: 0;
+    background-image:url(https://i.imgur.com/nMUZ2zU.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: BilboBold, Copperplate, "Copperplate Gothic Light", fantasy;
+    text-transform: lowercase;
+    color: white;
+    text-shadow: 2px 2px #000000;
+  }
+
+.fretBoard {
+    display: flex;
+    position: absolute;
+    top: 65%;
+    left: 23%;
+}
+
+.stringButtons {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 35%;
+    left: 78%;
+}
+
+#guitar {
+    display:flex;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.stringButton {
+    display: flex;
+    padding: 15px; 
+}
+
+#stringOne {
+    display: flex;
+}
