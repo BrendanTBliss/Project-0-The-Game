@@ -6,30 +6,30 @@
     <script
   src="http://code.jquery.com/jquery-3.5.1.js"
   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="styles/styles.css">
-    <script src="scripts/app.js"></script>
+    <script src="scripts/app.js" defer></script>
     <link rel="stylesheet" href="styles/styles.css">
     <title>Riff Repeater Game</title>
 </head>
 <body>
     <div>Riff Repeater Title</div>
     <!-- <img id = "guitar" src = "https://i.imgur.com/X9w1ohu.png"> -->
-    <div class = 'fretBoard'>
-            <button class = 'stringButton' id = 'aButton'>A</button>
-            <button class = 'stringButton' id = 'sButton'>S</button>
-            <button class = 'stringButton' id = 'dButton'>D</button>
-            <button class = 'stringButton' id = 'fButton'>F</button>
-            <button class = 'stringButton' id = 'gButton'>G</button>
+    <div class = 'fretBoardButtons'>
+            <button class = 'fretButton' id = 'aButton'>A</button>
+            <button class = 'fretButton' id = 'sButton'>S</button>
+            <button class = 'fretButton' id = 'dButton'>D</button>
+            <button class = 'fretButton' id = 'fButton'>F</button>
+            <button class = 'fretButton' id = 'gButton'>G</button>
     </div>
-    <div class = 'stringButtons'>
-            <button id = 'stringOne'>string1</button>
-            <!-- <button id = 'stringOne' onclick = "stringOneFretZero.play()">string1</button> -->
-            <button id = 'stringTwo' onclick = "stringTwoFretZero.play()">string2</button>
-            <button id = 'stringThree'>string3</button>
-            <button id = 'stringFour' onclick = "stringFourFretZero.play()">string4</button>
-            <button id = 'stringFive' onclick = "stringFiveFretZero.play()">string5</button>
-            <button id = 'stringSix' onclick = "stringSixFretZero.play()">string6</button>
+    <div class = 'strings'>
+            <button class = 'bodyButton' id = 'stringOne'>string1</button>
+            <!-- <button class = 'bodyButton' d = 'stringOne' onclick = "stringOneFretZero.play()">string1</button> -->
+            <button class = 'bodyButton' id = 'stringTwo'>string2</button>
+            <button class = 'bodyButton' id = 'stringThree'>string3</button>
+            <button class = 'bodyButton' id = 'stringFour'>string4</button>
+            <button class = 'bodyButton' id = 'stringFive'>string5</button>
+            <button class = 'bodyButton' id = 'stringSix'>string6</button>
 
     </div>
     

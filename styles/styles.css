@@ -12,18 +12,18 @@ body {
     text-shadow: 2px 2px #000000;
   }
 
-.fretBoard {
+.fretBoardButtons {
     display: flex;
     position: absolute;
-    top: 65%;
-    left: 23%;
+    top: 60%;
+    left: 22%;
 }
 
-.stringButtons {
+.strings {
     display: flex;
     position: absolute;
     flex-direction: column;
-    top: 35%;
+    top: 31%;
     left: 78%;
 }
 
@@ -34,11 +34,16 @@ body {
     left: 0%;
 }
 
-.stringButton {
+.fretButton {
     display: flex;
-    padding: 15px; 
+    padding: 15px;
+    margin: 3px; 
 }
 
 #stringOne {
     display: flex;
+}
+
+.bodyButton {
+    margin: 1px;
 }
