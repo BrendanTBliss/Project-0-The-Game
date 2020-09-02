@@ -54,44 +54,44 @@ $("#startButton").on("click", async function() {
 });
 
 // const oneZero = {string: $('#stringOne'), sound: new Audio('scripts/8394__speedy__clean-e1st-str-pluck.wav')},
-// oneOne = {string: $('stringOne'), fretbutton: $('#aButton'), sound: new Audio('scripts/8386__speedy__clean-b-str-pluck.wav')},
-const oneZero = {sound: new Audio('scripts/8394__speedy__clean-e1st-str-pluck.wav')},
-oneOne = {sound: new Audio('scripts/8386__speedy__clean-b-str-pluck.wav')},
-oneTwo = {sound: new Audio('scripts/8382__speedy__clean-a-str-pick.wav')},
-oneThree = {sound: new Audio('scripts/8389__speedy__clean-d-str-pluck.wav')},
-oneFour = {sound: new Audio('scripts/8386__speedy__clean-b-str-pluck.wav')},
-oneFive = {sound: new Audio('scripts/8397__speedy__clean-e-str-pluck.wav')},
-twoZero = {sound: new Audio('scripts/8386__speedy__clean-b-str-pluck.wav')},
-twoOne = {sound: new Audio('scripts/8386__speedy__clean-b-str-pluck.wav')},
-twoTwo = {sound: new Audio('scripts/8386__speedy__clean-b-str-pluck.wav')},
-twoThree = {sound: new Audio('scripts/8386__speedy__clean-b-str-pluck.wav')},
-twoFour = {sound: new Audio('scripts/8386__speedy__clean-b-str-pluck.wav')},
-twoFive = {sound: new Audio('scripts/8386__speedy__clean-b-str-pluck.wav')},
-threeZero = {sound: new Audio('scripts/8382__speedy__clean-a-str-pick.wav')},
-threeOne = {sound: new Audio('scripts/8382__speedy__clean-a-str-pick.wav')},
-threeTwo = {sound: new Audio('scripts/8382__speedy__clean-a-str-pick.wav')},
-threeThree = {sound: new Audio('scripts/8382__speedy__clean-a-str-pick.wav')},
-threeFour = {sound: new Audio('scripts/8382__speedy__clean-a-str-pick.wav')},
-threeFive = {sound: new Audio('scripts/8382__speedy__clean-a-str-pick.wav')},
-fourZero = {sound: new Audio('scripts/8389__speedy__clean-d-str-pluck.wav')},
-fourOne = {sound: new Audio('scripts/8389__speedy__clean-d-str-pluck.wav')},
-fourTwo = {sound: new Audio('scripts/8389__speedy__clean-d-str-pluck.wav')},
-fourThree = {sound: new Audio('scripts/8389__speedy__clean-d-str-pluck.wav')},
-fourFour = {sound: new Audio('scripts/8389__speedy__clean-d-str-pluck.wav')},
-fourFive = {sound: new Audio('scripts/8389__speedy__clean-d-str-pluck.wav')},
-fiveZero = {sound: new Audio('scripts/8382__speedy__clean-a-str-pick.wav')},
-fiveOne = {sound: new Audio('scripts/8382__speedy__clean-a-str-pick.wav')},
-fiveTwo = {sound: new Audio('scripts/8382__speedy__clean-a-str-pick.wav')},
-fiveThree = {sound: new Audio('scripts/8382__speedy__clean-a-str-pick.wav')},
-fiveFour = {sound: new Audio('scripts/8382__speedy__clean-a-str-pick.wav')},
-fiveFive = {sound: new Audio('scripts/8382__speedy__clean-a-str-pick.wav')},
-sixZero = {sound: new Audio('scripts/8397__speedy__clean-e-str-pluck.wav')},
-sixOne = {sound: new Audio('scripts/8397__speedy__clean-e-str-pluck.wav')},
-sixTwo = {sound: new Audio('scripts/8397__speedy__clean-e-str-pluck.wav')},
-sixThree = {sound: new Audio('scripts/8397__speedy__clean-e-str-pluck.wav')},
-sixFour = {sound: new Audio('scripts/8397__speedy__clean-e-str-pluck.wav')},
-sixFive = {sound: new Audio('scripts/8397__speedy__clean-e-str-pluck.wav')},
-emptyAudio = [],
+// oneOne = {string: $('#stringOne'), fretbutton: $('#aButton'), sound: new Audio('scripts/8386__speedy__clean-b-str-pluck.wav')},
+const oneZero = {sound: new Audio('scripts/sixZero.m4a')},
+oneOne = {sound: new Audio('scripts/sixOne.m4a')},
+oneTwo = {sound: new Audio('scripts/sixTwo.m4a')},
+oneThree = {sound: new Audio('scripts/sixThree.m4a')},
+oneFour = {sound: new Audio('scripts/sixFour.m4a')},
+oneFive = {sound: new Audio('scripts/sixFive.m4a')},
+twoZero = {sound: new Audio('scripts/fiveZero.m4a')},
+twoOne = {sound: new Audio('scripts/fiveOne.m4a')},
+twoTwo = {sound: new Audio('scripts/fiveTwo.m4a')},
+twoThree = {sound: new Audio('scripts/fiveThree.m4a')},
+twoFour = {sound: new Audio('scripts/fiveFour.m4a')},
+twoFive = {sound: new Audio('scripts/fiveFive.m4a')},
+threeZero = {sound: new Audio('scripts/fourZero.m4a')},
+threeOne = {sound: new Audio('scripts/fourOne.m4a')},
+threeTwo = {sound: new Audio('scripts/fourTwo.m4a')},
+threeThree = {sound: new Audio('scripts/fourThree.m4a')},
+threeFour = {sound: new Audio('scripts/fourFour.m4a')},
+threeFive = {sound: new Audio('scripts/fourFive.m4a')},
+fourZero = {sound: new Audio('scripts/threeZero.m4a')},
+fourOne = {sound: new Audio('scripts/threeOne.m4a')},
+fourTwo = {sound: new Audio('scripts/threeTwo.m4a')},
+fourThree = {sound: new Audio('scripts/threeThree.m4a')},
+fourFour = {sound: new Audio('scripts/threeFour.m4a')},
+fourFive = {sound: new Audio('scripts/threeFive.m4a')},
+fiveZero = {sound: new Audio('scripts/twoZero.m4a')},
+fiveOne = {sound: new Audio('scripts/twoOne.m4a')},
+fiveTwo = {sound: new Audio('scripts/twoTwo.m4a')},
+fiveThree = {sound: new Audio('scripts/twoThree.m4a')},
+fiveFour = {sound: new Audio('scripts/twoFour.m4a')},
+fiveFive = {sound: new Audio('scripts/twoFive.m4a')},
+sixZero = {sound: new Audio('scripts/oneZero.m4a')},
+sixOne = {sound: new Audio('scripts/oneOne.m4a')},
+sixTwo = {sound: new Audio('scripts/oneTwo.m4a')},
+sixThree = {sound: new Audio('scripts/oneThree.m4a')},
+sixFour = {sound: new Audio('scripts/oneFour.m4a')},
+sixFive = {sound: new Audio('scripts/oneFive.m4a')},
+emptyAudio = {sound: new Audio('scripts/emptyTrack.m4a')},
 allNotes = [oneZero, oneOne, oneTwo, oneThree, oneFour, oneFive, twoZero, twoOne, twoTwo, twoThree, twoFour, twoFive, threeZero, threeOne, threeTwo, threeThree, threeFour, threeFive, fourZero, fourOne, fourTwo, fourThree, fourFour, fourFive, fiveZero, fiveOne, fiveTwo, fiveThree, fiveFour, fiveFive, sixZero, sixOne, sixTwo, sixThree, sixFour, sixFive],
 guitar = {
     //whatString: {keyPressed: note, .....}
@@ -103,7 +103,7 @@ guitar = {
     6: {0: sixZero, 65: sixOne, 83: sixTwo, 68: sixThree, 70: sixFour, 71: sixFive}
 }
 
-fullSongPlayback = [oneOne, oneZero, oneOne, oneZero, /*emptyAudio*/ oneZero, oneOne];
+fullSongPlayback = [sixZero, sixZero, sixOne, sixTwo, emptyAudio, fiveZero, sixTwo, fiveZero, sixTwo, sixTwo, sixOne, sixZero, fiveTwo, sixZero, sixZero, emptyAudio, fiveTwo, sixZero, sixOne, sixTwo, emptyAudio, fiveZero, sixTwo, fiveZero, sixTwo, sixTwo, sixOne, sixZero, fiveTwo, sixZero, sixZero, emptyAudio, fiveTwo];
 fullSongUser = [oneZero, oneOne, oneTwo, oneThree, oneFour, oneFive];
 
 async function playNote(note) {
@@ -117,9 +117,9 @@ async function playNote(note) {
 }
 
 async function playSong() {
-    for (index = 0; index < fullSongUser.length; index++ ) {
-        await playNote(fullSongUser[index]);
-        await sleep(600);
+    for (index = 0; index < fullSongPlayback.length; index++ ) {
+        await playNote(fullSongPlayback[index]);
+        await sleep(400);
     };
 }
 
@@ -136,7 +136,6 @@ function muteOtherStrings(currentNote){
     return new Promise(resolve => {
     for (let index = 0; index < allNotes.length; index++) {
         const note = allNotes[index];
-        console.log(note);
         if(note != currentNote){
             note.sound.muted = true;
         }
@@ -178,4 +177,10 @@ $aButton.on("click", function() {
 $sButton.on("click", function() {
     console.log('buttonS test');
 })
+
+// var userSongAttempt = [];
+// for (let index = 0; index < fullUserSong.length; index++) {
+//     userSongAttempt[index] = ;
+    
+// }
 
