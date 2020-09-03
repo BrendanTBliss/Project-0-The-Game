@@ -62,7 +62,14 @@ function keyUpHandler(event) {
     console.log('all keys released');
 }
 
+$('#strikeOne').hide();
+$('#strikeTwo').hide();
+$('#strikeThree').hide();
+
 $("#startButton").on("click", async function() {
+    $('#strikeOne').fadeOut(200);
+    $('#strikeTwo').fadeOut(200);
+    $('#strikeThree').fadeOut(200);
     await playSong();
     gameInProgress = true;
     userNotesPlayed = 0;
@@ -109,6 +116,9 @@ sixThree = {sound: new Audio('scripts/oneThree.m4a'), stringButton: $('#stringSi
 sixFour = {sound: new Audio('scripts/oneFour.m4a'), stringButton: $('#stringSix'), fretButton: $('#fButton')},
 sixFive = {sound: new Audio('scripts/oneFive.m4a'), stringButton: $('#stringSix'), fretButton: $('#gButton')},
 emptyAudio = {sound: new Audio('scripts/emptyTrack.m4a')},
+messUpSoundOne = new Audio('scripts/messUpSoundOne.m4a');
+messUpSoundTwo = new Audio('scripts/messUpSoundTwo.m4a');
+
 allNotes = [oneZero, oneOne, oneTwo, oneThree, oneFour, oneFive, twoZero, twoOne, twoTwo, twoThree, twoFour, twoFive, threeZero, threeOne, threeTwo, threeThree, threeFour, threeFive, fourZero, fourOne, fourTwo, fourThree, fourFour, fourFive, fiveZero, fiveOne, fiveTwo, fiveThree, fiveFour, fiveFive, sixZero, sixOne, sixTwo, sixThree, sixFour, sixFive],
 guitar = {
     //whatString: {keyPressed: note, .....}
@@ -128,7 +138,7 @@ const buttonPressed = {
     71: $('#gButton'),
 }
 
-let fullSongPlayback = [sixZero, sixZero, sixOne, sixTwo, emptyAudio, fiveZero, sixTwo, fiveZero, sixTwo, sixTwo, sixOne, sixZero, fiveTwo, sixZero, sixZero, emptyAudio, fiveTwo, sixZero, sixOne, sixTwo, emptyAudio, fiveZero, sixTwo, fiveZero, sixTwo, sixTwo, sixOne, sixZero, fiveTwo, sixZero, sixZero, emptyAudio, fiveTwo];
+let fullSongPlayback = [emptyAudio, emptyAudio, emptyAudio, emptyAudio, emptyAudio, sixZero, sixZero, sixOne, sixTwo, emptyAudio, fiveZero, sixTwo, fiveZero, sixTwo, sixTwo, sixOne, sixZero, fiveTwo, sixZero, sixZero, emptyAudio, fiveTwo];
 let fullSongUser = [sixZero, sixZero, sixOne, sixTwo, fiveZero, sixTwo, fiveZero, sixTwo, sixTwo, sixOne, sixZero, fiveTwo, sixZero, sixZero, fiveTwo];
 
 function highlightNote(note) {
@@ -191,11 +201,31 @@ async function stringClicked(whatString){
                 gameInProgress = false;
             }
         }
-        else { 
-            console.log('add an X');  //create an invisible div and make it visible here
+        else {  
             numberOfStrikes++;
-            if (numberOfStrikes == 3) {
-                console.log('you lose');  // create anvisible div and make it visible here
+            if (numberOfStrikes == 1) {
+                console.log('Strike 1');
+                messUpSoundOne.play();
+                messUpSoundTwo.play();
+                $('#strikeOne').show();
+                userNotesPlayed = 0;
+                playSong();
+            }
+            else if (numberOfStrikes == 2) {
+                console.log('Strike 2');
+                messUpSoundOne.play();
+                messUpSoundTwo.play();
+                $('#strikeTwo').show();
+                userNotesPlayed = 0;
+                playSong();
+            }
+            else if (numberOfStrikes == 3) {
+                console.log('you lose');
+                messUpSoundOne.play();
+                messUpSoundTwo.play();
+                $('#strikeThree').show();
+                userNotesPlayed = 0;
+                // create anvisible div and make it visible here
                 gameInProgress = false;    
             }
             else {

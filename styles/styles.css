@@ -15,8 +15,25 @@ body {
 .fretBoardButtons {
     display: flex;
     position: absolute;
-    top: 60%;
-    left: 22%;
+    top: 58%;
+    left: 22.5%;
+}
+
+.fretButton {
+    display: flex;
+    padding: 11px;
+    margin: 4px; 
+    border-radius: 50%;
+    background-image: linear-gradient(#353535, #D7D7D7);
+    border-width: 5px;
+    
+}
+
+.bodyButton {
+    margin: 1px;
+    border-radius: 20%;
+    background-image: linear-gradient(#353535, #D7D7D7);
+    border-width: 3px;
 }
 
 .strings {
@@ -34,21 +51,30 @@ body {
     left: 0%;
 }
 
-.fretButton {
-    display: flex;
-    padding: 15px;
-    margin: 3px; 
-    
-}
 
 #stringOne {
     display: flex;
 }
 
-.bodyButton {
-    margin: 1px;
-}
 
 .highlight {
-    background-color: green;
+    color: yellow;
+    border-color: yellow;
 }
+
+.strikes {
+    display: flex;
+    position: absolute;
+    top: 16%;
+    left: 27%;
+}
+
+#strikeImages {
+    display: flex;
+    position: relative;
+    margin: 10px; 
+    padding: 10px;
+    border: 10px;
+}
+
+
