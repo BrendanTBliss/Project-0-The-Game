@@ -48,3 +48,7 @@ body {
 .bodyButton {
     margin: 1px;
 }
+
+.highlight {
+    background-color: green;
+}
