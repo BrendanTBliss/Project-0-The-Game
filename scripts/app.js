@@ -64,18 +64,6 @@ $('#strikeThree').hide();
 $('.youWin').hide();
 $('.youLose').hide();
 
-$("#startButton").on("click", async function() {
-    $('#strikeOne').fadeOut(350);
-    $('#strikeTwo').fadeOut(350);
-    $('#strikeThree').fadeOut(350);
-    $('.youWin').fadeOut(350);
-    $('.youLose').fadeOut(350);
-    await playSong();
-    gameInProgress = true;
-    userNotesPlayed = 0;
-    numberOfStrikes = 0;
-    // change all the divs back to invisible
-});
 
 // const oneZero = {string: $('#stringOne'), sound: new Audio('scripts/8394__speedy__clean-e1st-str-pluck.wav')},
 // oneOne = {string: $('#stringOne'), fretbutton: $('#aButton'), sound: new Audio('scripts/8386__speedy__clean-b-str-pluck.wav')},
@@ -142,6 +130,8 @@ const buttonPressed = {
 let fullSongPlayback = [emptyAudio, emptyAudio, emptyAudio, emptyAudio, emptyAudio, sixZero, sixZero, sixOne, sixTwo, emptyAudio, fiveZero, sixTwo, fiveZero, sixTwo, sixTwo, sixOne, sixZero, fiveTwo, sixZero, sixZero, emptyAudio, fiveTwo];
 let fullSongUser = [sixZero, sixZero, sixOne, sixTwo, fiveZero, sixTwo, fiveZero, sixTwo, sixTwo, sixOne, sixZero, fiveTwo, sixZero, sixZero, fiveTwo];
 let fullSongPlaybackTwo = [emptyAudio, emptyAudio, emptyAudio, emptyAudio, emptyAudio, fiveZero, fourTwo, oneZero, threeTwo, twoThree, threeTwo, oneZero, threeTwo, twoOne, threeTwo, oneZero, threeTwo, twoZero, threeTwo, fourTwo, threeTwo];
+let fullSongUserTwo = [fiveZero, fourTwo, oneZero, threeTwo, twoThree, threeTwo, oneZero, threeTwo, twoOne, threeTwo, oneZero, threeTwo, twoZero, threeTwo, fourTwo, threeTwo];
+
 
 function highlightNote(note) {
     $('.bodyButton').removeClass('highlight');
@@ -164,15 +154,18 @@ function resetNote(note) {
     }
 }
 
-async function playNote(note) {
-    highlightNote(note);
-    await muteOtherStrings(note);
-    const sound = note.sound;
-    sound.currentTime = 0;
-    sound.muted = false;
-    sound.play()
-    // resetNote(note);
-}
+$("#startButton").on("click", async function() {
+    $('#strikeOne').fadeOut(350);
+    $('#strikeTwo').fadeOut(350);
+    $('#strikeThree').fadeOut(350);
+    $('.youWin').fadeOut(350);
+    $('.youLose').fadeOut(350);
+    await playSong();
+    gameInProgress = true;
+    userNotesPlayed = 0;
+    numberOfStrikes = 0;
+    // change all the divs back to invisible
+});
 
 async function playSong() {
     for (index = 0; index < fullSongPlayback.length; index++ ) {
@@ -183,6 +176,16 @@ async function playSong() {
     $('.fretButton').removeClass('highlight');
 }
 
+async function playNote(note) {
+    highlightNote(note);
+    await muteOtherStrings(note);
+    const sound = note.sound;
+    sound.currentTime = 0;
+    sound.muted = false;
+    sound.play()
+    // resetNote(note);
+}
+
 function sleep(ms) {    
     return new Promise (resolve => setTimeout(resolve, ms)); 
 }
@@ -190,6 +193,7 @@ function sleep(ms) {
 let userNotesPlayed = 0;
 let numberOfStrikes = 0;
 let gameInProgress = false;
+let gameTwoInProgress = false;
 
 
 async function stringClicked(whatString){
@@ -203,6 +207,7 @@ async function stringClicked(whatString){
                 $('.youWin').show();
                 youWin.play();
                 $startButton.removeClass('highlight');
+                // $startButtonTwo.removeClass('highlight');
                 gameInProgress = false;
             }
         }
@@ -232,12 +237,61 @@ async function stringClicked(whatString){
                 $('.youLose').fadeIn(750);
                 userNotesPlayed = 0;
                 $startButton.removeClass('highlight');
+                // $startButtonTwo.removeClass('highlight');
                 // create anvisible div and make it visible here
                 gameInProgress = false;    
             }
             else {
                 userNotesPlayed = 0;
                 playSong();
+            }
+        }
+    }
+    else if (gameInProgressTwo == true) {
+        if (noteToPlay == fullSongUserTwo[userNotesPlayed]) {
+            userNotesPlayed++;
+            if (userNotesPlayed == fullSongUserTwo.length) {
+                console.log('you win');
+                $('.youWin').show();
+                youWin.play();
+                // $startButton.removeClass('highlight');
+                $startButtonTwo.removeClass('highlight');
+                gameInProgressTwo = false;
+            }
+        }
+        else {  
+            numberOfStrikes++;
+            if (numberOfStrikes == 1) {
+                console.log('Strike 1');
+                messUpSoundOne.play();
+                messUpSoundTwo.play();
+                $('#strikeOne').show();
+                userNotesPlayed = 0;
+                playSongTwo();
+            }
+            else if (numberOfStrikes == 2) {
+                console.log('Strike 2');
+                messUpSoundOne.play();
+                messUpSoundTwo.play();
+                $('#strikeTwo').show();
+                userNotesPlayed = 0;
+                playSongTwo();
+            }
+            else if (numberOfStrikes == 3) {
+                console.log('you lose');
+                messUpSoundOne.play();
+                messUpSoundTwo.play();
+                $('#strikeThree').show();
+                $('.youLose').fadeIn(750);
+                userNotesPlayed = 0;
+                $startButton.removeClass('highlight');
+                $startButtonTwo.removeClass('highlight');
+                // create anvisible div and make it visible here
+                gameInProgressTwo = false;    
+            }
+            else {
+                userNotesPlayed = 0;
+                playSongTwo();
             }
         }
     }
@@ -295,6 +349,13 @@ $startButton.on('click', function() {
     $startButton.toggleClass('highlight');
 })
 
+const $startButtonTwo = $('#startButtonTwo');
+
+$startButtonTwo.on('click', function() {
+    $startButtonTwo.toggleClass('highlight');
+})
+
+
 
 
 
@@ -309,3 +370,24 @@ $startButton.on('click', function() {
 
 // $('#stringOne').css('background', 'green');
 
+$("#startButtonTwo").on("click", async function() {
+    $('#strikeOne').fadeOut(350);
+    $('#strikeTwo').fadeOut(350);
+    $('#strikeThree').fadeOut(350);
+    $('.youWin').fadeOut(350);
+    $('.youLose').fadeOut(350);
+    await playSongTwo();
+    gameInProgressTwo = true;
+    userNotesPlayed = 0;
+    numberOfStrikes = 0;
+    // change all the divs back to invisible
+});
+
+async function playSongTwo() {
+    for (index = 0; index < fullSongPlaybackTwo.length; index++ ) {
+        await playNote(fullSongPlaybackTwo[index]);
+        await sleep(275);
+    };
+    $('.bodyButton').removeClass('highlight');
+    $('.fretButton').removeClass('highlight');
+};
