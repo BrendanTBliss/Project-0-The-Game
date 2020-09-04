@@ -62,13 +62,15 @@ $('#strikeOne').hide();
 $('#strikeTwo').hide();
 $('#strikeThree').hide();
 $('.youWin').hide();
-
+$('.youLose').hide();
 
 $("#startButton").on("click", async function() {
     $('#strikeOne').fadeOut(350);
     $('#strikeTwo').fadeOut(350);
     $('#strikeThree').fadeOut(350);
     $('.youWin').fadeOut(350);
+    $('.youLose').fadeOut(350);
+
     await playSong();
     gameInProgress = true;
     userNotesPlayed = 0;
@@ -117,6 +119,7 @@ sixFive = {sound: new Audio('scripts/oneFive.m4a'), stringButton: $('#stringSix'
 emptyAudio = {sound: new Audio('scripts/emptyTrack.m4a')},
 messUpSoundOne = new Audio('scripts/messUpSoundOne.m4a');
 messUpSoundTwo = new Audio('scripts/messUpSoundTwo.m4a');
+youWin = new Audio('scripts/youWin.m4a');
 
 allNotes = [oneZero, oneOne, oneTwo, oneThree, oneFour, oneFive, twoZero, twoOne, twoTwo, twoThree, twoFour, twoFive, threeZero, threeOne, threeTwo, threeThree, threeFour, threeFive, fourZero, fourOne, fourTwo, fourThree, fourFour, fourFive, fiveZero, fiveOne, fiveTwo, fiveThree, fiveFour, fiveFive, sixZero, sixOne, sixTwo, sixThree, sixFour, sixFive],
 guitar = {
@@ -198,6 +201,7 @@ async function stringClicked(whatString){
             if (userNotesPlayed == fullSongUser.length) {
                 console.log('you win');
                 $('.youWin').show();
+                youWin.play();
                 $startButton.removeClass('highlight');
                 gameInProgress = false;
             }
@@ -225,6 +229,7 @@ async function stringClicked(whatString){
                 messUpSoundOne.play();
                 messUpSoundTwo.play();
                 $('#strikeThree').show();
+                $('.youLose').fadeIn(750);
                 userNotesPlayed = 0;
                 $startButton.removeClass('highlight');
                 // create anvisible div and make it visible here

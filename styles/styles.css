@@ -40,11 +40,18 @@ body {
     position: fixed;
     top: 150px;
     left: 258px;
-    color: rgba(0, 255, 21, 0.829);
+    color: yellow;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     font-size: 40px;
+}
 
-
+.youLose {
+    position: fixed;
+    top: 248px;
+    left: 258px;
+    color: red;
+    text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+    font-size: 60px;
 }
 
 .fretBoardButtonA {
