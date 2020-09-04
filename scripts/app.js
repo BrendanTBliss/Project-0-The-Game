@@ -30,25 +30,21 @@ function keyDownHandler(event) {
             keyPressed = event.keyCode;
             console.log('S is being pressed');
             buttonPressed[keyPressed].addClass('highlight');
-
             break;
         case 68:
             keyPressed = event.keyCode;
             console.log('D is being pressed');
             buttonPressed[keyPressed].addClass('highlight');
-
             break;
         case 70:
             keyPressed = event.keyCode;
             console.log('F is being pressed');
             buttonPressed[keyPressed].addClass('highlight');
-
             break;
         case 71:
             keyPressed = event.keyCode;
             console.log('G is being pressed');
             buttonPressed[keyPressed].addClass('highlight');
-
             break;
         default:
             keyPressed = 0;
@@ -65,11 +61,14 @@ function keyUpHandler(event) {
 $('#strikeOne').hide();
 $('#strikeTwo').hide();
 $('#strikeThree').hide();
+$('.youWin').hide();
+
 
 $("#startButton").on("click", async function() {
-    $('#strikeOne').fadeOut(200);
-    $('#strikeTwo').fadeOut(200);
-    $('#strikeThree').fadeOut(200);
+    $('#strikeOne').fadeOut(350);
+    $('#strikeTwo').fadeOut(350);
+    $('#strikeThree').fadeOut(350);
+    $('.youWin').fadeOut(350);
     await playSong();
     gameInProgress = true;
     userNotesPlayed = 0;
@@ -198,6 +197,8 @@ async function stringClicked(whatString){
             userNotesPlayed++;
             if (userNotesPlayed == fullSongUser.length) {
                 console.log('you win');
+                $('.youWin').show();
+                $startButton.removeClass('highlight');
                 gameInProgress = false;
             }
         }
@@ -225,6 +226,7 @@ async function stringClicked(whatString){
                 messUpSoundTwo.play();
                 $('#strikeThree').show();
                 userNotesPlayed = 0;
+                $startButton.removeClass('highlight');
                 // create anvisible div and make it visible here
                 gameInProgress = false;    
             }
@@ -281,6 +283,14 @@ $aButton.on("click", function() {
 $sButton.on("click", function() {
     console.log('buttonS test');
 })
+
+const $startButton = $('#startButton');
+
+$startButton.on('click', function() {
+    $startButton.toggleClass('highlight');
+})
+
+
 
 // var userSongAttempt = [];
 // for (let index = 0; index < fullUserSong.length; index++) {
