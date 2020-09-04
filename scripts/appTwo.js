@@ -142,6 +142,8 @@ const buttonPressed = {
 let fullSongPlayback = [emptyAudio, emptyAudio, emptyAudio, emptyAudio, emptyAudio, sixZero, sixZero, sixOne, sixTwo, emptyAudio, fiveZero, sixTwo, fiveZero, sixTwo, sixTwo, sixOne, sixZero, fiveTwo, sixZero, sixZero, emptyAudio, fiveTwo];
 let fullSongUser = [sixZero, sixZero, sixOne, sixTwo, fiveZero, sixTwo, fiveZero, sixTwo, sixTwo, sixOne, sixZero, fiveTwo, sixZero, sixZero, fiveTwo];
 let fullSongPlaybackTwo = [emptyAudio, emptyAudio, emptyAudio, emptyAudio, emptyAudio, fiveZero, fourTwo, oneZero, threeTwo, twoThree, threeTwo, oneZero, threeTwo, twoOne, threeTwo, oneZero, threeTwo, twoZero, threeTwo, fourTwo, threeTwo];
+let fullSongUserTwo = [fiveZero, fourTwo, oneZero, threeTwo, twoThree, threeTwo, oneZero, threeTwo, twoOne, threeTwo, oneZero, threeTwo, twoZero, threeTwo, fourTwo, threeTwo];
+
 
 function highlightNote(note) {
     $('.bodyButton').removeClass('highlight');
@@ -203,6 +205,7 @@ async function stringClicked(whatString){
                 $('.youWin').show();
                 youWin.play();
                 $startButton.removeClass('highlight');
+                $startButtonTwo.removeClass('highlight');
                 gameInProgress = false;
             }
         }
@@ -232,6 +235,7 @@ async function stringClicked(whatString){
                 $('.youLose').fadeIn(750);
                 userNotesPlayed = 0;
                 $startButton.removeClass('highlight');
+                $startButtonTwo.removeClass('highlight');
                 // create anvisible div and make it visible here
                 gameInProgress = false;    
             }
@@ -295,6 +299,13 @@ $startButton.on('click', function() {
     $startButton.toggleClass('highlight');
 })
 
+const $startButtonTwo = $('#startButtonTwo');
+
+$startButtonTwo.on('click', function() {
+    $startButtonTwo.toggleClass('highlight');
+})
+
+
 
 
 
@@ -309,3 +320,94 @@ $startButton.on('click', function() {
 
 // $('#stringOne').css('background', 'green');
 
+$("#startButtonTwo").on("click", async function() {
+    $('#strikeOne').fadeOut(350);
+    $('#strikeTwo').fadeOut(350);
+    $('#strikeThree').fadeOut(350);
+    $('.youWin').fadeOut(350);
+    $('.youLose').fadeOut(350);
+    await playSongTwo();
+    gameInProgress = true;
+    userNotesPlayed = 0;
+    numberOfStrikes = 0;
+    // change all the divs back to invisible
+});
+
+async function playSongTwo() {
+    for (index = 0; index < fullSongPlaybackTwo.length; index++ ) {
+        await playNote(fullSongPlaybackTwo[index]);
+        await sleep(275);
+    };
+    $('.bodyButton').removeClass('highlight');
+    $('.fretButton').removeClass('highlight');
+}
+
+async function stringClickedTwo(whatString){
+    let noteToPlay = guitar[whatString][keyPressed];
+    await playNote(noteToPlay);
+    if (gameInProgress == true) {
+        if (noteToPlay == fullSongUserTwo[userNotesPlayed]) {
+            userNotesPlayed++;
+            if (userNotesPlayed == fullSongUserTwo.length) {
+                console.log('you win');
+                $('.youWin').show();
+                youWin.play();
+                $startButton.removeClass('highlight');
+                gameInProgress = false;
+            }
+        }
+        else {  
+            numberOfStrikes++;
+            if (numberOfStrikes == 1) {
+                console.log('Strike 1');
+                messUpSoundOne.play();
+                messUpSoundTwo.play();
+                $('#strikeOne').show();
+                userNotesPlayed = 0;
+                playSongTwo();
+            }
+            else if (numberOfStrikes == 2) {
+                console.log('Strike 2');
+                messUpSoundOne.play();
+                messUpSoundTwo.play();
+                $('#strikeTwo').show();
+                userNotesPlayed = 0;
+                playSongTwo();
+            }
+            else if (numberOfStrikes == 3) {
+                console.log('you lose');
+                messUpSoundOne.play();
+                messUpSoundTwo.play();
+                $('#strikeThree').show();
+                $('.youLose').fadeIn(750);
+                userNotesPlayed = 0;
+                $startButton.removeClass('highlight');
+                // create anvisible div and make it visible here
+                gameInProgress = false;    
+            }
+            else {
+                userNotesPlayed = 0;
+                playSongTwo();
+            }
+        }
+    }
+}
+
+$("#stringOne").on("click", function() {
+    stringClickedTwo(1);
+});
+$("#stringTwo").on("click", function() {
+    stringClickedTwo(2);
+});
+$("#stringThree").on("click", function() {
+    stringClickedTwo(3);
+});
+$("#stringFour").on("click", function() {
+    stringClickedTwo(4);
+});
+$("#stringFive").on("click", function() {
+    stringClickedTwo(5);
+});
+$("#stringSix").on("click", function() {
+    stringClickedTwo(6);
+});
